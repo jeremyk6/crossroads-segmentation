@@ -169,7 +169,7 @@ else:
         print("=== PREPROCESSING (2) ===")
 
     # build an undirected version of the graph
-    G = ox.utils_graph.get_undirected(G)
+    G = ox.convert.to_undirected(G)
 
 
 if verbose:

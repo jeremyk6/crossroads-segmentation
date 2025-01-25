@@ -316,9 +316,11 @@ class Segmentation:
 
         Segmentation.prepare_network_remove_construction(G)
 
-        G = ox.utils_graph.remove_isolated_nodes(G)
+
+        # remove isolated nodes
+        G.remove_nodes_from(list(nx.isolates(G)))
         if not keep_all_components and len(G.nodes) != 0:
-            G = ox.utils_graph.get_largest_component(G)
+            G = ox.truncate.largest_component(G)
         # double transformation to fix keys != 0
         return nx.MultiDiGraph(nx.DiGraph(G))
 

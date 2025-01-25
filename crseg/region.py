@@ -135,7 +135,7 @@ class Region:
         return result
 
     def distance_to(self, latitude, longitude):
-        return min([ox.distance.great_circle_vec(lat1=self.G.nodes[k]["y"], lng1=self.G.nodes[k]["x"], lat2=latitude, lng2=longitude) for k in self.nodes])
+        return min([ox.distance.great_circle(lat1=self.G.nodes[k]["y"], lon1=self.G.nodes[k]["x"], lat2=latitude, lon2=longitude) for k in self.nodes])
 
     def diameter(self):
         # TODO: not optimized
